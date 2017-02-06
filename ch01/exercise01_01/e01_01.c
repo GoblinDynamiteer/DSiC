@@ -38,12 +38,13 @@ int main(void){
 		printf("Error opening file!");
 		exit(1);
 	}
+	/*	Declare struct array 	*/
 	person persons[MAXPERSONS];
 	getData(numberFile, persons);
-
 	return 0;
 }
 
+/*	Extract data from textfile to struct 	*/
 int getData(FILE * file, person p[]){
 	int i = 0;
 	char tempStr[CHARBUFFER*2];
@@ -51,6 +52,10 @@ int getData(FILE * file, person p[]){
 	while(getString(file, tempStr)){
 		getName(tempStr, &p[i]);
 		getNumber(tempStr, &p[i++]);
+		if(i > MAXPERSONS){
+			printf("Array size limit reached!");
+			break;
+		}
 		printf("Name: %s Number: %s\n",p[i-1].name, p[i-1].number);
 	}
 }
@@ -59,7 +64,6 @@ int getData(FILE * file, person p[]){
 bool getString(FILE * file, char string[]){
 	char ch;
 	int i = 0;
-
 	/*	Skip white characters 	*/
 	while(isspace(ch = getc(file))){
 		;
@@ -67,7 +71,6 @@ bool getString(FILE * file, char string[]){
 	if(ch == EOF){
 		return 0;
 	}
-
 	/*	Copy chars from textfile to string	*/
 	do{
 		string[i++] = ch;
@@ -78,25 +81,25 @@ bool getString(FILE * file, char string[]){
 	return 1;
 }
 
-/*	Extracts name part from textfile 	*/
+/*	Extracts name part from string 	*/
 void getName(char string[], person * p){
 	int i = 0, j = 0;
+	/*	Runs until first digit is reached in string 	*/
 	while(!isdigit(string[i])){
 		p->name[j++] = string[i++];
 	}
 	p->name[j-1] = '\0';
 }
 
-/*	Extracts phone number part from textfile 	*/
+/*	Extracts phone number part from string 	*/
 void getNumber(char string[], person * p){
 	int i = 0, j = 0;
 	while(!isdigit(string[i])){
 		i++;
 	}
-	/*	Copy chars from textfile to string	*/
+	/*	Copy chars from string to phone number	*/
 	while(string[i] != '\0'){
 		p->number[j++] = string[i++];
 	}
-
 	p->number[j] = '\0';
 }
