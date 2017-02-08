@@ -3,7 +3,10 @@
  *  Data Structures in C
  *  by Noel Kalicharan
  *
- *  Page X
+ *	Exercise XX, Chapter XX
+ *  Page XX
+ *
+ *  !Instructions!
  */
 
 #include <stdio.h>
