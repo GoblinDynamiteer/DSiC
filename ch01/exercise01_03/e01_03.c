@@ -29,21 +29,32 @@ bool isLeapYear(int year);
 int main(void){
 	date d1 = {12, 11, 1984};
 	date d2 = {13, 9, 2005};
-	for(int i = 1; i < 2050; i++){
-		if(isLeapYear(i)){
-			printf("%04d is a leapyear (%d days)!\n", i, LEAP_YEAR_DAYS);
+	return 0;
+}
+
+/*	Calculates amount of days from full years 	*/
+int getDaysFromYears(int year){
+	int days = 0;
+	while(--year){ //Skip current year
+		printf("Calcing year %d\n", year);
+		if(isLeapYear(year)){
+			days += LEAP_YEAR_DAYS;
 		}
 		else{
-			printf("%04d is a normal year (%d days)!\n", i, YEAR_DAYS);
+			days += YEAR_DAYS;
 		}
 	}
-	return 0;
+	return days;
+}
 
+int getDaysFromYearStart(date date){
+	int days = 0;
+	return days;
 }
 
 int daysBetween(date d1, date d2){
 	return 123;
-};
+}
 
 /*	Determines if year is a leap year 	*/
 bool isLeapYear(int year){
