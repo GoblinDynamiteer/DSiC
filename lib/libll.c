@@ -18,9 +18,7 @@ node * insFirst(node * n, int val){
   }
   else{
     node * temp = n;
-    printf("temp: %d\n", temp->value);
     n = createNode(val);
-    printf("n: %d\n", n->value);
     n->next = temp;
   }
   return n;
