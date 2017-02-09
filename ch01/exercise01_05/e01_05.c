@@ -6,24 +6,24 @@
  *	Exercise 05, Chapter 01
  *  Page 23
  *
- *  Use a structure to hold lenghts in
+ *  Use a structure to hold lengths in
  *	meter/centimeter. Write functions
  *	that compares, adds and subtracts
- *	two lenghts.
+ *	two lengths.
  */
 
 #include <stdio.h>
 
 typedef struct{
 	int m, cm;
-}lenght;
+}length;
 
-int compareLen(lenght l1, lenght l2);
-lenght addLen(lenght l1, lenght l2);
-lenght subLen(lenght l1, lenght l2);
+int compareLen(length l1, length l2);
+length addLen(length l1, length l2);
+length subLen(length l1, length l2);
 
 int main(void){
-	lenght l1, l2, res;
+	length l1, l2, res;
 	l1.m = 3;
 	l1.cm = 75;
 	l2.m = 2;
@@ -41,34 +41,34 @@ int main(void){
 	return 0;
 }
 
-/*  Converts lenght to centimeters	*/
-int convertToCm(lenght l){
+/*  Converts length to centimeters	*/
+int convertToCm(length l){
 	return l.m * 100 + l.cm;
 }
 
-/*	Conerts centimeters to struct lenght 	*/
-lenght convertCmToStruct(int cm){
-	lenght res;
+/*	Conerts centimeters to struct length 	*/
+length convertCmToStruct(int cm){
+	length res;
 	res.m = (int)(cm / 100);
 	res.cm = (int)(cm % 100);
 	return res;
 }
 
-/*	Compare two lenghts, unsure what is wanted here,
+/*	Compare two lengths, unsure what is wanted here,
 		returns difference	*/
-int compareLen(lenght l1, lenght l2){
+int compareLen(length l1, length l2){
 	return convertToCm(l1) - convertToCm(l2);
 }
 
-/*	Addition, returns result as lenght struct 	*/
-lenght addLen(lenght l1, lenght l2){
+/*	Addition, returns result as length struct 	*/
+length addLen(length l1, length l2){
 	return convertCmToStruct(
 		convertToCm(l1) + convertToCm(l2)
 	);
 }
 
-/*	Subtraction, returns result as lenght struct 	*/
-lenght subLen(lenght l1, lenght l2){
+/*	Subtraction, returns result as length struct 	*/
+length subLen(length l1, length l2){
 	return convertCmToStruct(
 		convertToCm(l1) - convertToCm(l2)
 	);
