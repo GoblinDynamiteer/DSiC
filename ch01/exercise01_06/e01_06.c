@@ -43,8 +43,8 @@ int main(void){
 	/*	Print results 	*/
 	printf("Results:\n");
 	for(int i = 0; i< entries; i++){
-		/*  %-30s pads string with spaces right	*/
-		printf("%-30s\t %dm %02dcm\n", jumpers[i].name,
+		/*  %-*s left justify pads the string * number of chars	*/
+		printf("%-*s\t %dm %02dcm\n", NAMELEN, jumpers[i].name,
 			jumpers[i].length.m, jumpers[i].length.cm
 		);
 	}
