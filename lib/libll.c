@@ -64,3 +64,13 @@ node * getNode(node * n, int num){
   }
   return n;
 }
+
+/*  Returns number of items in list   */
+int countItems(node * n){
+  int c = 0;
+  while(!isEmpty(n)){
+    c++;
+    n = getNext(n);
+  }
+  return c;
+}

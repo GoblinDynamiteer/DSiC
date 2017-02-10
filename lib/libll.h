@@ -19,5 +19,6 @@ bool isEmpty(node * n);
 node * createNode(int val);
 node * getNext(node * n);
 node * getNode(node * n, int num);
+int countItems(node * n);
 
 #endif
