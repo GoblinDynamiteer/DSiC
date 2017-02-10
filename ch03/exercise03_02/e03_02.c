@@ -34,8 +34,11 @@ int main(void){
 
 /*	Reverse values in list, returns pointer to new top node 	*/
 node * reverseList(node * n){
+	/*	Counts items in list, i will be the last node 	*/
 	int i = countItems(n);
+	/*	getNode returns node at place i 	*/
 	node * newTopNode = getNode(n, i);
+	/*	Pointer used to iterate through list 	*/
 	node * it = newTopNode;
 	while(i){
 		it->next = getNode(n, i);
