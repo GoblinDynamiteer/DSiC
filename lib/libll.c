@@ -46,3 +46,21 @@ node * createNode(int val){
 node * getNext(node * n){
   return n->next;
 }
+
+/*  Returns the node at position num the list   */
+node * getNode(node * n, int num){
+  int i = num - 1;
+  if(!i){
+    return n;
+  }
+  while(i--){
+    if(isEmpty(getNext(n))){
+      printf("Cant get node at %d, outside list!\n", num);
+      return NULL;
+    }
+    else{
+      n = getNext(n);
+    }
+  }
+  return n;
+}

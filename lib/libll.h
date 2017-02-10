@@ -18,5 +18,6 @@ node * insFirst(node * n, int val);
 bool isEmpty(node * n);
 node * createNode(int val);
 node * getNext(node * n);
+node * getNode(node * n, int num);
 
 #endif
