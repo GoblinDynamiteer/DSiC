@@ -2,12 +2,20 @@
 
 #include "libll.h"
 
-/*  Inserts value last in list   */
-void insLast(node * n, int val){
-  while(!isEmpty(getNext(n))){
-    n = getNext(n);
+/*  Inserts value last in list
+    returns pointer to first node   */
+node * insLast(node * n, int val){
+  node * top = n;
+  if(isEmpty(n)){
+    top = createNode(val);
   }
-  n->next = createNode(val);
+  else{
+    while(!isEmpty(getNext(n))){
+      n = getNext(n);
+    }
+    n->next = createNode(val);
+  }
+  return top;
 }
 
 /*  Inserts value first in list,

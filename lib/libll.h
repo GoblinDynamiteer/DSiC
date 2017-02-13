@@ -13,7 +13,7 @@ typedef struct _S_LLINT{
   struct _S_LLINT * next;
 }node;
 
-void insLast(node * n, int val);
+node * insLast(node * n, int val);
 node * insFirst(node * n, int val);
 bool isEmpty(node * n);
 node * createNode(int val);
