@@ -24,6 +24,7 @@
 node * toBase(int decimal, int base);
 node * toBinary(int decimal);
 node * addBinary(node * b1, node * b2);
+node * addBinaryBBB(node * b1, node * b2);
 int toDec(node * n);
 void printBinaryList(node * list);
 
@@ -47,6 +48,23 @@ int main(void){
 /*	 Binary additon by using functions from exercises 7 & 8	*/
 node * addBinary(node * b1, node * b2){
 	return toBinary(toDec(b1) + toDec(b2));
+}
+
+/*	 Binary additon by using bit-by-bit addition	*/
+node * addBinaryBBB(node * b1, node * b2){
+	node * result = NULL;
+	int c1 = countItems(b1);
+	int c2 = countItems(b1);
+	int count, carry = 0;
+	if(c1 >= c2){
+		count = c1;
+	}
+	else{
+		count = c2;
+	}
+	for(int i = 0; i < count; i++){
+
+	};
 }
 
 /*	Convert decimal to base
